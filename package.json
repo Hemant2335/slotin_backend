@@ -1,0 +1,19 @@
+{
+  "name": "slotin_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1" ,
+    "start" :"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "slotin_backend"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

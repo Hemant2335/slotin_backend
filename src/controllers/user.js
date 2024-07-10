@@ -20,7 +20,7 @@ const generateAccessAndRefreshTokens= async(userId)=>{
     }
 }
 const createNewAccount = async(req,res)=>{
-    const { username,firstname,lastname,age,password,email} = req.body;
+    const { username,name,password,email} = req.body;
   
 
   if (!validator.isEmail(email)) {
@@ -39,14 +39,12 @@ const createNewAccount = async(req,res)=>{
   }
 
   
-  if (!/^[a-zA-Z]+$/.test(firstname) || !/^[a-zA-Z]+$/.test(lastname)) {
-    return res.status(400).send("First name and last name must contain only alphabetic characters");
+  if (!/^[a-zA-Z]+$/.test(name) ) {
+    return res.status(400).send(" name  contain only alphabetic characters");
   }
 
-  const ageNumber = Number(age);
-  if (!Number.isInteger(ageNumber) || ageNumber <= 0 || ageNumber > 120) {
-    return res.status(400).send("invalid Age");
-  }
+  
+  
 
     
         const existedUser = await user.findOne({
@@ -54,13 +52,12 @@ const createNewAccount = async(req,res)=>{
         })
 
         if(existedUser){
-            return res.status(409).send("email or username already exists ")
-        }
+            return res.status(409).send("email or username already exists ");
+            }
    const newUser= await user.create({
         username:username,
-        firstname:firstname,
-        lastname:lastname,
-        age:ageNumber,
+        name:name,
+        
         password:password,
         email : email
     });

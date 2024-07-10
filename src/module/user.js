@@ -12,22 +12,14 @@ username:{
    trim:true,
    index:true,
 },
-firstname:{
+name:{
    type:String, 
    required : true,
    trim:true,
    
 },
-lastname:{
-   type:String,
-   required : true,
-   trim:true,
-   
-},
-age :{
-   type:Number,
-   required:true,
-},
+
+
 password:{
    type:String,
    required:[true, 'Password is required'],
